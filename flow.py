@@ -118,40 +118,51 @@ class modeling_flow():
                 if "system.cpu.numCycles" in line:
                     numcycles = float(line.split()[1])
 
-                if "system.cpu.iew.exec_stores" in line:
+                # if "system.cpu.iew.exec_stores" in line:
+                if "system.cpu.executeStats0.numStoreInsts" in line:
                     iew_exex_stores = float(line.split()[1])
                     
-                if "system.cpu.iq.int_alu_accesses" in line:
+                # if "system.cpu.iq.int_alu_accesses" in line:
+                if "system.cpu.intAluAccesses" in line:
                     int_alu_accesses = float(line.split()[1])
                     
-                if "system.cpu.iq.FU_type_0::FloatMemRead" in line:
+                # if "system.cpu.iq.FU_type_0::FloatMemRead" in line:
+                if "system.cpu.commitStats0.committedInstType::FloatMemRead" in line:
                     FU_FpMemRead = float(line.split()[1])
                     
-                if "system.cpu.iq.FU_type_0::IntDiv" in line:
+                # if "system.cpu.iq.FU_type_0::IntDiv" in line:
+                if "system.cpu.commitStats0.committedInstType::IntDiv" in line:
                     IntDiv = float(line.split()[1])
                     
-                if "system.cpu.iq.FU_type_0::FloatMult" in line:
+                # if "system.cpu.iq.FU_type_0::FloatMult" in line:
+                if "system.cpu.commitStats0.committedInstType::FloatMult" in line:
                     FU_FpMult = float(line.split()[1])
                     
-                if "system.cpu.iq.FU_type_0::FloatDiv" in line:
+                # if "system.cpu.iq.FU_type_0::FloatDiv" in line:
+                if "system.cpu.commitStats0.committedInstType::FloatDiv" in line:
                     FU_FpDiv = float(line.split()[1])
                      
-                if "system.cpu.memDep0.conflictingStores" in line:
+                # if "system.cpu.memDep0.conflictingStores" in line:
+                if "system.cpu.MemDepUnit__0.conflictingStores" in line:
                     mem_conflictStores = float(line.split()[1])
                     
-                if "system.cpu.rename.CommittedMaps" in line:
+                # if "system.cpu.rename.CommittedMaps" in line:
+                if "system.cpu.rename.committedMaps" in line:
                     rename_Maps = float(line.split()[1])
                     
                 if "system.mem_ctrls.readReqs" in line:
                     mem_ctrls_reads = float(line.split()[1])
                      
-                if "system.cpu.icache.overall_mshr_hits::total" in line:
+                # if "system.cpu.icache.overall_mshr_hits::total" in line:
+                if "system.cpu.icache.overallMshrHits::total" in line:
                     icache_mshr_hits = float(line.split()[1])
                      
-                if "system.cpu.dcache.overall_accesses::total" in line:
+                # if "system.cpu.dcache.overall_accesses::total" in line:
+                if "system.cpu.dcache.overallAccesses::total" in line:
                     dcache_accesses = float(line.split()[1])
                      
-                if "system.cpu.dcache.overall_mshr_hits::total" in line:
+                # if "system.cpu.dcache.overall_mshr_hits::total" in line:
+                if "system.cpu.dcache.overallMshrHits::total" in line:
                     dcache_mshr_hits = float(line.split()[1])
    
         self.dynamic_calib_features[0][5] = iew_exex_stores / numcycles 

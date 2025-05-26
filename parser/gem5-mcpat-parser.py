@@ -77,7 +77,7 @@ def read_stats(stats_file):
     stats = {}
     with open(stats_file, 'r') as f:
         ignores = re.compile(r'^---|^$')
-        stat_line = re.compile(r'([a-zA-Z0-9_\.:-]+)\s+([-+]?[0-9]+\.[0-9]+|[-+]?[0-9]+|nan|inf)')
+        stat_line = re.compile(r'([a-zA-Z0-9_\.:\-eE\+]+)\s+([-+]?[0-9]+\.[0-9]+|[-+]?[0-9]+|nan|inf)')
         count = 0
         for line in f:
             # ignore empty lines and lines starting with "---"
